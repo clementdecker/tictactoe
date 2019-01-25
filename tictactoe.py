@@ -1,6 +1,8 @@
 
 import random
 
+# I am commenting
+
 
 def showBoard(board):
     # print out a tic-tac-toe board
@@ -123,18 +125,18 @@ def checkTied(board):
     for row in rows:
         # check to see if both an X and O occur in each of the rows
         # if not, return False
-        if 'X' and 'O' not in row:
+        if 'X' not in row or 'O' not in row:
             return False
 
     columns = boardData['columns']
     for column in columns:
         # loop through the columns just as we did for the rows
-        if 'X' and 'O' not in row:
+        if 'X' not in column or 'O' not in column:
             return False
 
     diagonals = boardData['diagonals']
     for diagonal in diagonals:
-        if 'X' and 'O' not in diagonal:
+        if 'X' not in diagonal or 'O' not in diagonal:
             return False
     # if we have passed all of the tests so far
     # it must still be possible to win
@@ -261,6 +263,6 @@ def game():
     return "Thanks for playing"
 
 
-if __name__ == '__main__':
+if __name__ == '__main__j':
     print("We got this far")
     print(game())
