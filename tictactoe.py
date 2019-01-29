@@ -216,34 +216,6 @@ def game():
         if check_solved(board):
             user_input = input(
                 'Game over. Type Yes if you would like to keep playing. Type No if you are done')
-            if str(user_input) == 'Yes':
-                board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-            else:
-                break
-
-        if checkTied(board):
-            user_input = input(
-                "Cat's game. No one wins. Type Yes if you would like to keep playing. Type No if you are done")
-            if str(user_input) == 'Yes':
-                board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-            else:
-                break
-
-        print(make_a_move(board))
-        print(computer_move(board))
-
-    return "Thanks for playing"
-
-
-def game():
-    # a list of instructions of how to run the game
-    board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    print(showBoard(board))
-
-    while True:
-        if check_solved(board):
-            user_input = input(
-                'Game over. Type Yes if you would like to keep playing. Type No if you are done')
             if 'Yes' in str(user_input):
                 board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
             else:
