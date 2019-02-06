@@ -92,57 +92,6 @@ def createBoardData(board):
 
     return dataDictionary
 
-
-def check_solved(board):
-    # check to see whether the board has been solved
-    boardData = createBoardData(board)
-    rows = boardData['rows']
-
-    for row in rows:
-        # loop through each of the rows to see if any have
-        # three consective 'X's or 'O's
-        if row.count('X') == 3 or row.count('O') == 3:
-            return True
-
-    columns = boardData['columns']
-    for column in columns:
-        # loop through the columns just as we did for rows
-        if column.count('X') == 3 or column.count('O') == 3:
-            return True
-
-    diagonals = boardData['diagonals']
-    for diagonal in diagonals:
-        if diagonal.count('X') == 3 or diagonal.count('O') == 3:
-            return True
-    return False
-
-
-def checkTied(board):
-    # check to see whether their is a tie and neither player can win
-    boardData = createBoardData(board)
-    rows = boardData['rows']
-
-    for row in rows:
-        # check to see if both an X and O occur in each of the rows
-        # if not, return False
-        if 'X' not in row or 'O' not in row:
-            return False
-
-    columns = boardData['columns']
-    for column in columns:
-        # loop through the columns just as we did for the rows
-        if 'X' not in column or 'O' not in column:
-            return False
-
-    diagonals = boardData['diagonals']
-    for diagonal in diagonals:
-        if 'X' not in diagonal or 'O' not in diagonal:
-            return False
-    # if we have passed all of the tests so far
-    # it must still be possible to win
-    return True
-
-
 def countWaysToWin(board, position):
     # given a position on the board
         # determine how many rows of three can be acheived
@@ -182,7 +131,7 @@ def countWaysToWin(board, position):
 def find_best_spot(board):
     # loop through the entire board
     # and return the spot with the most ways to win
-    best_spot = 0
+    best_spot = None
     most_ways_to_win = 0
 
     spots_left = [i for i in board if type(i) == int]
@@ -211,29 +160,17 @@ def game():
     # a list of instructions of how to run the game
     board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     print(showBoard(board))
-
-    while True:
-        if check_solved(board):
-            user_input = input(
-                'Game over. Type Yes if you would like to keep playing. Type No if you are done')
-            if 'Yes' in str(user_input):
-                board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-            else:
-                break
-
-        if checkTied(board):
-            user_input = input(
-                "Cat's game. No one wins. Type Yes if you would like to keep playing. Type No if you are done")
-            if 'Yes' in str(user_input):
-                board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-            else:
-                break
-
+    while find_best_spot(board):
         print(make_a_move(board))
-        print(computer_move(board))
-
-    return "Thanks for playing"
-
+	    if not find_best_spot(board):
+            break
+            print(computer_move(board)
+    return 'Thanks for playing'
+  
+                  
+print(game())
+    
+  
 
 if __name__ == '__main__j':
     print("We got this far")
