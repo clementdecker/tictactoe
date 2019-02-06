@@ -107,8 +107,7 @@ def countWaysToWin(board, position):
     diagonals = boardData['diagonals']
     # store the diagonals of the current board
 
-    for row in rows:
-        if position in row:
+    for row in rows:        if position in row:
             if user_symbol not in row:
                 ways_to_win += 1
                 # if there are no 'O' in the position's row
@@ -161,10 +160,11 @@ def game():
     board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     print(showBoard(board))
     while find_best_spot(board):
+	
         print(make_a_move(board))
-	    if not find_best_spot(board):
-            break
-            print(computer_move(board)
+	if not find_best_spot(board):
+	    break
+        print(computer_move(board)
     return 'Thanks for playing'
   
                   
