@@ -86,7 +86,6 @@ def createBoardData(board):
 
     cols = createCols(board)
     dataDictionary['columns'] = cols[0], cols[1], cols[2]
-
     diagonals = createDiagonals(board)
     dataDictionary['diagonals'] = diagonals[0], diagonals[1]
 
@@ -107,7 +106,8 @@ def countWaysToWin(board, position):
     diagonals = boardData['diagonals']
     # store the diagonals of the current board
 
-    for row in rows:        if position in row:
+    for row in rows:        
+        if position in row:
             if user_symbol not in row:
                 ways_to_win += 1
                 # if there are no 'O' in the position's row
