@@ -164,7 +164,7 @@ def game():
         print(make_a_move(board))
 	if not find_best_spot(board):
 	    break
-        print(computer_move(board)
+        print(computer_move(board))
     return 'Thanks for playing'
   
                   
