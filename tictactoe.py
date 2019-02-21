@@ -228,6 +228,7 @@ def opponentAboutToWin(board, opponent_symbol, player_symbol):
     return False
 
 
+
 def computer_move(board, user_symbol):
 
         # tell the computer to pick the best_spot available
@@ -259,6 +260,12 @@ def game():
         print(user_move)
         if check_solved(board) or checkTied(board):
     		user_input = input("Game over. Type Yes if you would like to keep playing. Type No if you are done: ")
+
+    while True:
+        if check_solved(board):
+            user_input = input(
+                'Game over. Type Yes if you would like to keep playing. Type No if you are done')
+
             if 'Yes' in str(user_input):
                 board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
                 print(showBoard(board))
